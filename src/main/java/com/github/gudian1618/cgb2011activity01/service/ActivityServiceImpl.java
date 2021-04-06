@@ -32,6 +32,6 @@ public class ActivityServiceImpl implements ActivityService {
         List<Activity> list = activityDao.findActivitys();
         log.info("end {}", System.currentTimeMillis());
 
-        return null;
+        return list;
     }
 }

@@ -18,6 +18,10 @@ public class Activity implements Serializable {
     private String category;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
+    private Short state;
+    private String remark;
+    private String createdUser;
+    private LocalDateTime createdTime;
 
     @Override
     public String toString() {
@@ -105,10 +109,5 @@ public class Activity implements Serializable {
     public void setCreatedTime(LocalDateTime createdTime) {
         this.createdTime = createdTime;
     }
-
-    private Short state;
-    private String remark;
-    private String createdUser;
-    private LocalDateTime createdTime;
 
 }
