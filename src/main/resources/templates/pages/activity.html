@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>The Activity Page</h1>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>title</th>
+                <th>category</th>
+                <th>startTime</th>
+                <th>endTime</th>
+                <th>state</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="a:${list}">
+                <td th:text="${a.id}"></td>
+                <td th:text="${a.title}"></td>
+                <td th:text="${a.category}"></td>
+                <td th:text="${a.startTime}"></td>
+                <td th:text="${a.endTime}"></td>
+                <td th:text="${a.state}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

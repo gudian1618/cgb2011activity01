@@ -1,6 +1,10 @@
 package com.github.gudian1618.cgb2011activity01.dao;
 
+import com.github.gudian1618.cgb2011activity01.pojo.Activity;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * @author gudian1618
@@ -11,6 +15,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface ActivityDao {
 
-
+    @Select("select * from tb_activity")
+    List<Activity> findActivitys();
 
 }
