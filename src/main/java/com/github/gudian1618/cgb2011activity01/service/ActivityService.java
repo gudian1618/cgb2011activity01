@@ -12,6 +12,8 @@ import java.util.List;
 
 public interface ActivityService {
 
+    void saveActivity(Activity entity);
+
     List<Activity> findActivitys();
 
 }

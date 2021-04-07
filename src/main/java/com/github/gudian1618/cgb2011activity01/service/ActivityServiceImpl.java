@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -25,6 +26,14 @@ public class ActivityServiceImpl implements ActivityService {
 
     @Autowired
     private ActivityDao activityDao;
+
+    @Override
+    public void saveActivity(Activity entity) {
+        log.info("start {}", System.currentTimeMillis());
+        entity.setCreatedTime(LocalDateTime.now());
+        activityDao.insertActivity(entity);
+        log.info("end {}", System.currentTimeMillis());
+    }
 
     @Override
     public List<Activity> findActivitys() {

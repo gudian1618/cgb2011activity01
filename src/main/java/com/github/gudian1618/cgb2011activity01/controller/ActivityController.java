@@ -22,11 +22,22 @@ public class ActivityController {
     @Autowired
     private ActivityService activityService;
 
-    @RequestMapping("doActivityUI")
+    @RequestMapping("activity_edit")
+    public String doActivityEditUI() {
+        return "activity_edit";
+    }
+
+    @RequestMapping("doSaveActivity")
+    public String doSaveActivity(Activity entity) {
+        activityService.saveActivity(entity);
+        return "redirect:activity_list";
+    }
+
+    @RequestMapping("activity_list")
     public String doActivityUI(Model model) {
         List<Activity> list = activityService.findActivitys();
         model.addAttribute("list", list);
-        return "activity";
+        return "activity_list";
     }
 
 }
