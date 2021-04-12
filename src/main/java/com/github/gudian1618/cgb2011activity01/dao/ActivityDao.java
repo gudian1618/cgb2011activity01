@@ -16,8 +16,8 @@ import java.util.List;
 @Mapper
 public interface ActivityDao {
 
-    @Insert("insert into tb_activity (title,category,startTime,endTime,state,remark,createUser,createdTime) values " +
-        "(#{title},#{category},#{startTime},#{endTime},#{state},#{remark},#{createUser},#{createdTime})")
+    @Insert("insert into tb_activity (title,category,startTime,endTime,state,remark,createdUser,createdTime) values " +
+        "(#{title},#{category},#{startTime},#{endTime},#{state},#{remark},#{createdUser},#{createdTime})")
     int insertActivity(Activity activity);
 
     @Select("select * from tb_activity")

@@ -1,5 +1,7 @@
 package com.github.gudian1618.cgb2011activity01.pojo;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -16,9 +18,11 @@ public class Activity implements Serializable {
     private Long id;
     private String title;
     private String category;
+    @DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss")
     private LocalDateTime startTime;
+    @DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss")
     private LocalDateTime endTime;
-    private Short state;
+    private Short state=1;
     private String remark;
     private String createdUser;
     private LocalDateTime createdTime;
