@@ -23,7 +23,8 @@ public class ActivityController {
     private ActivityService activityService;
 
     @RequestMapping("activity_edit")
-    public String doActivityEditUI() {
+    public String doActivityEditUI(Model model) {
+        model.addAttribute("act", new Activity());
         return "activity_edit";
     }
 
