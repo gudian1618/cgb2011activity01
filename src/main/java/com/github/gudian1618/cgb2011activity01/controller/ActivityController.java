@@ -27,6 +27,13 @@ public class ActivityController {
         return "activity_edit";
     }
 
+    @RequestMapping("doFindById")
+    public String doFindById(Long id, Model model) {
+        Activity act = activityService.findById(id);
+        model.addAttribute("act", act);
+        return "activity_edit";
+    }
+
     @RequestMapping("doSaveActivity")
     public String doSaveActivity(Activity entity) {
         activityService.saveActivity(entity);

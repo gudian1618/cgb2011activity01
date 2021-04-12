@@ -16,6 +16,9 @@ import java.util.List;
 @Mapper
 public interface ActivityDao {
 
+    @Select("select * from tb_activity where id=#{id}")
+    Activity findById(Long id);
+
     @Insert("insert into tb_activity (title,category,startTime,endTime,state,remark,createdUser,createdTime) values " +
         "(#{title},#{category},#{startTime},#{endTime},#{state},#{remark},#{createdUser},#{createdTime})")
     int insertActivity(Activity activity);

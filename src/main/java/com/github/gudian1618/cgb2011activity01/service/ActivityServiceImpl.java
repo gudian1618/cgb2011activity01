@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * @author gudian1618
@@ -26,6 +27,17 @@ public class ActivityServiceImpl implements ActivityService {
 
     @Autowired
     private ActivityDao activityDao;
+
+    @Override
+    public Activity findById(Long id) {
+        log.info("start {}", System.currentTimeMillis());
+        Activity act = activityDao.findById(id);
+        if (act==null) {
+            throw new NoSuchElementException("对象可能已经不存在");
+        }
+        log.info("end {}", System.currentTimeMillis());
+        return act;
+    }
 
     @Override
     public void saveActivity(Activity entity) {

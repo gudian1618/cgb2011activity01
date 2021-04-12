@@ -12,6 +12,8 @@ import java.util.List;
 
 public interface ActivityService {
 
+    Activity findById(Long id);
+
     void saveActivity(Activity entity);
 
     List<Activity> findActivitys();

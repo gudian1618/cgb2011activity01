@@ -18,6 +18,7 @@
                 <th>startTime</th>
                 <th>endTime</th>
                 <th>state</th>
+                <th>operation</th>
             </tr>
         </thead>
         <tbody>
@@ -28,6 +29,7 @@
                 <td th:text="${#temporals.format(a.startTime, 'yyyy/MM/dd HH:mm:ss')}"></td>
                 <td th:text="${#temporals.format(a.endTime, 'yyyy/MM/dd HH:mm:ss')}"></td>
                 <td th:text="${a.state==1?'进行中':'已结束'}"></td>
+                <td><a th:href="@{/activity/doFindById(id=${a.id})}">update</a></td>
             </tr>
         </tbody>
     </table>

@@ -12,15 +12,16 @@
 <form action="/activity/doSaveActivity" method="post">
     <ul>
         <li>标题</li>
-        <li><input type="text" name="title"></li>
+        <li><input type="text" name="title" th:value="${act.title}"></li>
         <li>类型</li>
-        <li><input type="text" name="category"></li>
+        <li><input type="text" name="category" th:value="${act.category}"></li>
         <li>开始时间</li>
-        <li><input type="text" name="startTime"></li>
+        <li><input type="text" name="startTime" th:value="${#temporals.format(act.startTime, 'yyyy/MM/dd HH:mm:ss')}"></li>
         <li>结束时间</li>
-        <li><input type="text" name="endTime"></li>
+        <li><input type="text" name="endTime" th:value="${#temporals.format(act.endTime, 'yyyy/MM/dd HH:mm:ss')}"></li>
         <li>备注</li>
-        <li><textarea rows="5" cols="30" name="remark"></textarea></li>
+        <!--<li><textarea rows="5" cols="30" name="remark" >[[${act.remark}]]</textarea></li>-->
+        <li><textarea rows="5" cols="30" name="remark" th:text="${act.remark}"></textarea></li>
         <li>提交<input type="submit" value="save"></li>
     </ul>
 </form>
