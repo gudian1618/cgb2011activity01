@@ -1,8 +1,8 @@
 package com.github.gudian1618.cgb2011activity01.pojo;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
@@ -15,9 +15,15 @@ import java.time.LocalDateTime;
  * 用于存储活动信息的pojo对象
  */
 
-@Setter
-@Getter
-@ToString
+// @Setter
+// @Getter
+// @ToString
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+// 下面这个注解主要用于修饰final修饰的属性,即需要常量属性构造函数时,用该注解
+// @RequiredArgsConstructor
 public class Activity implements Serializable {
 
     private static final long serialVersionUID = 8061797569821604641L;
