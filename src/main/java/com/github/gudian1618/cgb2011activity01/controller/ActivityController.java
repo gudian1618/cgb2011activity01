@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -50,6 +51,14 @@ public class ActivityController {
         List<Activity> list = activityService.findActivitys();
         model.addAttribute("list", list);
         return "activity_list";
+    }
+
+    @RequestMapping("doFindActivitys")
+    // 告诉springmvc 将返回json格式的字符串
+    @ResponseBody
+    public List<Activity> doFindActivitys() {
+        List<Activity> list = activityService.findActivitys();
+        return list;
     }
 
 }
