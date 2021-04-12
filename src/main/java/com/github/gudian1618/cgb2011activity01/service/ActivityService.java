@@ -12,6 +12,8 @@ import java.util.List;
 
 public interface ActivityService {
 
+    int updateActivity(Activity entity);
+
     Activity findById(Long id);
 
     void saveActivity(Activity entity);

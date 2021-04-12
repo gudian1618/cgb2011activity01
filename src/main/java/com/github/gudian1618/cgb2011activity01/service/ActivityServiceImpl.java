@@ -29,6 +29,17 @@ public class ActivityServiceImpl implements ActivityService {
     private ActivityDao activityDao;
 
     @Override
+    public int updateActivity(Activity entity) {
+        log.info("start {}", System.currentTimeMillis());
+        int rows = activityDao.updateActivity(entity);
+        if (rows==0) {
+            throw new NoSuchElementException("更新失败");
+        }
+        log.info("end {}", System.currentTimeMillis());
+        return rows;
+    }
+
+    @Override
     public Activity findById(Long id) {
         log.info("start {}", System.currentTimeMillis());
         Activity act = activityDao.findById(id);

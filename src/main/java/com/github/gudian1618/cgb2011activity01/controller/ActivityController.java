@@ -36,7 +36,11 @@ public class ActivityController {
 
     @RequestMapping("doSaveActivity")
     public String doSaveActivity(Activity entity) {
-        activityService.saveActivity(entity);
+        if (entity.getId() == null) {
+            activityService.saveActivity(entity);
+        } else {
+            activityService.updateActivity(entity);
+        }
         return "redirect:activity_list";
     }
 
