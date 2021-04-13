@@ -4,7 +4,6 @@ import com.github.gudian1618.cgb2011activity01.pojo.Activity;
 import com.github.gudian1618.cgb2011activity01.service.ActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -24,7 +23,7 @@ public class ActivityController {
     private ActivityService activityService;
 
     @RequestMapping("doSaveActivity")
-    @ResponseBody
+    // @ResponseBody
     public String doSaveActivity(Activity entity) {
         activityService.saveActivity(entity);
         return "save ok";
@@ -36,8 +35,16 @@ public class ActivityController {
     }
 
     @RequestMapping("activity_list")
-    public String doActivityListUI(Model model) {
+    public String doActivityListUI() {
         return "activity_list";
+    }
+
+    @RequestMapping("doFindActivitys")
+    // 告诉springmvc 将返回json格式的字符串
+    @ResponseBody
+    public List<Activity> doFindActivitys() {
+        List<Activity> list = activityService.findActivitys();
+        return list;
     }
 
     // @RequestMapping("activity_edit")
@@ -69,13 +76,5 @@ public class ActivityController {
     //     model.addAttribute("list", list);
     //     return "activity_list";
     // }
-
-    @RequestMapping("doFindActivitys")
-    // 告诉springmvc 将返回json格式的字符串
-    @ResponseBody
-    public List<Activity> doFindActivitys() {
-        List<Activity> list = activityService.findActivitys();
-        return list;
-    }
 
 }
