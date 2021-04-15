@@ -1,10 +1,7 @@
 package com.github.gudian1618.cgb2011activity01.dao;
 
 import com.github.gudian1618.cgb2011activity01.pojo.Activity;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -16,6 +13,9 @@ import java.util.List;
 
 @Mapper
 public interface ActivityDao {
+
+    @Delete("delete from tb_activity where id=#{id}")
+    int deleteById(Long id);
 
     @Update("update tb_activity set title=#{title},category=#{category},startTime=#{startTime},endTime=#{endTime},remark=#{remark} where id=#{id}")
     int updateActivity(Activity entity);

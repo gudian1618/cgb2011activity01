@@ -83,12 +83,21 @@
                 "<td>" + new Date(row.startTime).toLocaleString() + "</td>" +
                 "<td>" + new Date(row.endTime).toLocaleString() + "</td>" +
                 "<td>" + (row.state?"进行中":"已结束") + "</td>" +
-                "<td>delete</td>" +
+                "<td><a onclick=doDeleteById('"+row.id+"')>delete</a></td>" +
                 "</tr>";
         }
         // 2.2 将字符串以html形式更新到tbody位置
         var tBody = document.getElementById("tbodyId");
         tBody.innerHTML = trs;
+    }
+
+    function doDeleteById(id) {
+        const params = "id=" + id;
+        const url = "doDeleteById";
+        Ajax.doAjaxGet(url,params,function (result) {
+            alert(result)
+            doGetActivitys();
+        })
     }
 
     (function () {

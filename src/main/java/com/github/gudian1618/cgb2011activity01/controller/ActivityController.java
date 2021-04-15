@@ -22,6 +22,13 @@ public class ActivityController {
     @Autowired
     private ActivityService activityService;
 
+    @RequestMapping("doDeleteById")
+    @ResponseBody
+    public String doDeleteById(Long id) {
+        activityService.deleteById(id);
+        return "delete ok";
+    }
+
     @RequestMapping("doSaveActivity")
     // @ResponseBody
     public String doSaveActivity(Activity entity) {

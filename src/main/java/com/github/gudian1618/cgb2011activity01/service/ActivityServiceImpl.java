@@ -29,10 +29,20 @@ public class ActivityServiceImpl implements ActivityService {
     private ActivityDao activityDao;
 
     @Override
+    public void deleteById(Long id) {
+        log.info("start {}", System.currentTimeMillis());
+        int rows = activityDao.deleteById(id);
+        if (rows == 0) {
+            throw new NoSuchElementException("对象可能已经不存在");
+        }
+        log.info("end {}", System.currentTimeMillis());
+    }
+
+    @Override
     public int updateActivity(Activity entity) {
         log.info("start {}", System.currentTimeMillis());
         int rows = activityDao.updateActivity(entity);
-        if (rows==0) {
+        if (rows == 0) {
             throw new NoSuchElementException("更新失败");
         }
         log.info("end {}", System.currentTimeMillis());
@@ -43,7 +53,7 @@ public class ActivityServiceImpl implements ActivityService {
     public Activity findById(Long id) {
         log.info("start {}", System.currentTimeMillis());
         Activity act = activityDao.findById(id);
-        if (act==null) {
+        if (act == null) {
             throw new NoSuchElementException("对象可能已经不存在");
         }
         log.info("end {}", System.currentTimeMillis());
