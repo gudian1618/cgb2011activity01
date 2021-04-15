@@ -1,5 +1,6 @@
 (function () {
     var Ajax = function () {}
+    // 每个js函数内部都存在一个原型对象,这个对象会被所有函数实例所共享 ()class A{} A.class,在内存中只有一份
     Ajax.prototype = {
         doAjaxGet: function doAjaxGet(url, params, callback) {
             // debugger

@@ -64,14 +64,25 @@
         // 2.将json对象中数据更新到页面上
         // 2.1 迭代jsonObj对象中的数据,并将数据拼接到tr字符串中
         var trs = "";
-        for (var i = 0; i < jsonObj.length; i++) {
+        // for (var i = 0; i < jsonObj.length; i++) {
+        //     trs += "<tr>" +
+        //         "<td>" + jsonObj[i].id + "</td>" +
+        //         "<td>" + jsonObj[i].title + "</td>" +
+        //         "<td>" + jsonObj[i].category + "</td>" +
+        //         "<td>" + new Date(jsonObj[i].startTime).toLocaleString() + "</td>" +
+        //         "<td>" + new Date(jsonObj[i].endTime).toLocaleString() + "</td>" +
+        //         "<td>" + (jsonObj[i].state?"进行中":"已结束") + "</td>" +
+        //         "<td>delete</td>" +
+        //         "</tr>";
+        // }
+        for (const row of jsonObj) {
             trs += "<tr>" +
-                "<td>" + jsonObj[i].id + "</td>" +
-                "<td>" + jsonObj[i].title + "</td>" +
-                "<td>" + jsonObj[i].category + "</td>" +
-                "<td>" + new Date(jsonObj[i].startTime).toLocaleString() + "</td>" +
-                "<td>" + new Date(jsonObj[i].endTime).toLocaleString() + "</td>" +
-                "<td>" + (jsonObj[i].state?"进行中":"已结束") + "</td>" +
+                "<td>" + row.id + "</td>" +
+                "<td>" + row.title + "</td>" +
+                "<td>" + row.category + "</td>" +
+                "<td>" + new Date(row.startTime).toLocaleString() + "</td>" +
+                "<td>" + new Date(row.endTime).toLocaleString() + "</td>" +
+                "<td>" + (row.state?"进行中":"已结束") + "</td>" +
                 "<td>delete</td>" +
                 "</tr>";
         }
@@ -80,7 +91,12 @@
         tBody.innerHTML = trs;
     }
 
-    doGetActivitys();
+    (function () {
+        doGetActivitys();
+    })()
+
+    window.doGetActivitys();
+
 </script>
 </body>
 </html>
