@@ -22,6 +22,11 @@ public class ActivityController {
     @Autowired
     private ActivityService activityService;
 
+    @RequestMapping("activity_jquery")
+    public String doJQueryUI() {
+        return "activity_jquery";
+    }
+
     @RequestMapping("doDeleteById")
     @ResponseBody
     public String doDeleteById(Long id) {

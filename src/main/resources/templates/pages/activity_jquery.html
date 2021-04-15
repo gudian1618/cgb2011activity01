@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The jQuery Function operation</title>
+</head>
+<script src="/js/jQuery.min.js"></script>
+<body>
+<h1>The jQuery Function operation</h1>
+<button onclick="doAjax()">ajax()</button>
+<button onclick="doGet()">get()</button>
+<button onclick="doGetJSON()">getJSON()</button>
+<button onclick="doPost()">post()</button>
+
+<script type="text/javascript">
+    function doAjax() {
+        $.ajax({
+            type: "GET",
+            url: "doFindActivitys",
+            dataType: "json",
+            data: "",
+            async: true,
+            success: function (result) {
+                console.log(result);
+            }
+        });
+        console.log("ajax(...)")
+    }
+
+    function doGet() {
+        var url = "doFindActivitys";
+        var data = "";
+        $.get(url, data, function (result) {
+            console.log("get result", result)
+        }, "json")
+    }
+
+    function doGetJSON() {
+        var url = "doFindActivitys";
+        var data = "";
+        $.getJSON(url, data, function (result) {
+            console.log("get result", result)
+        })
+    }
+
+    function doPost() {
+        var url = "doDeleteById";
+        var data = "id=10";
+        $.post(url, data, function (result) {
+            console.log("post result", result)
+        })
+    }
+</script>
+</body>
+</html>

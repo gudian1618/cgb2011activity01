@@ -62,6 +62,13 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.webjars.bower/jquery &ndash;&gt;-->
+        <!--<dependency>-->
+        <!--    <groupId>org.webjars.bower</groupId>-->
+        <!--    <artifactId>jquery</artifactId>-->
+        <!--    <version>3.3.1</version>-->
+        <!--</dependency>-->
+
     </dependencies>
 
     <build>
