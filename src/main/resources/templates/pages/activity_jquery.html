@@ -11,6 +11,11 @@
 <button onclick="doGet()">get()</button>
 <button onclick="doGetJSON()">getJSON()</button>
 <button onclick="doPost()">post()</button>
+<button onclick="doLoad()">load()</button>
+
+<div id="container">
+
+</div>
 
 <script type="text/javascript">
     function doAjax() {
@@ -23,7 +28,17 @@
             success: function (result) {
                 console.log(result);
             }
-        });
+        })
+        .done(function (result) {
+            console.log("done", result)
+        })
+        .fail(function (xhrObj) {
+            console.log("fail", xhrObj.responseText)
+        })
+        .always(function () {
+            console.log("always")
+        })
+
         console.log("ajax(...)")
     }
 
@@ -49,6 +64,13 @@
         $.post(url, data, function (result) {
             console.log("post result", result)
         })
+    }
+
+    function doLoad() {
+        var url = "doFindActivitys";
+        $("#container").load(url,function () {
+            console.log("Data load complete")
+        });
     }
 </script>
 </body>
