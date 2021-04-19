@@ -42,7 +42,12 @@
         $.post(url, params, function (result) {
             alert(result);
             location.href = "activity_list";
-        });
+        })
+            .fail(function (xhr) {
+                if (xhr.status == 400) {
+                    alert("请检查数据格式");
+                }
+            })
     }
 
 </script>
