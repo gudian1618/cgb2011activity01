@@ -29,15 +29,15 @@
                 console.log(result);
             }
         })
-        .done(function (result) {
-            console.log("done", result)
-        })
-        .fail(function (xhrObj) {
-            console.log("fail", xhrObj.responseText)
-        })
-        .always(function () {
-            console.log("always")
-        })
+            .done(function (result) {
+                console.log("done", result)
+            })
+            .fail(function (xhrObj) {
+                console.log("fail", xhrObj.responseText)
+            })
+            .always(function () {
+                console.log("always")
+            })
 
         console.log("ajax(...)")
     }
@@ -48,6 +48,16 @@
         $.get(url, data, function (result) {
             console.log("get result", result)
         }, "json")
+            .done(function (result) {
+                console.log("done", result)
+            })
+            .fail(function (xhrObj) {
+                console.log("fail", xhrObj.responseText)
+            })
+            .always(function () {
+                console.log("always")
+            })
+
     }
 
     function doGetJSON() {
@@ -56,6 +66,16 @@
         $.getJSON(url, data, function (result) {
             console.log("get result", result)
         })
+            .done(function (result) {
+                console.log("done", result)
+            })
+            .fail(function (xhrObj) {
+                console.log("fail", xhrObj.responseText)
+            })
+            .always(function () {
+                console.log("always")
+            })
+
     }
 
     function doPost() {
@@ -64,11 +84,21 @@
         $.post(url, data, function (result) {
             console.log("post result", result)
         })
+            .done(function (result) {
+                console.log("done", result)
+            })
+            .fail(function (xhrObj) {
+                console.log("fail", xhrObj.responseText)
+            })
+            .always(function () {
+                console.log("always")
+            })
+
     }
 
     function doLoad() {
         var url = "doFindActivitys";
-        $("#container").load(url,function () {
+        $("#container").load(url, function () {
             console.log("Data load complete")
         });
     }
