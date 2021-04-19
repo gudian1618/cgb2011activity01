@@ -98,8 +98,10 @@
 
     function doLoad() {
         var url = "doFindActivitys";
-        $("#container").load(url, function () {
-            console.log("Data load complete")
+        $("#container").load(url, function (response, status, xhr) {
+            console.log("response",response)
+            console.log("status",status)
+            console.log("xhr",xhr)
         });
     }
 </script>

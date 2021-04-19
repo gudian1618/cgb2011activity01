@@ -24,7 +24,8 @@ public class ActivityController {
 
     @RequestMapping("activity_jquery")
     public String doJQueryUI() {
-        return "activity_jquery";
+        // return "activity_jquery";
+        return "activity_jquery_form";
     }
 
     @RequestMapping("doDeleteById")

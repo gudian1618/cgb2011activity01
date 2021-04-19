@@ -11,22 +11,7 @@
 </head>
 <body>
 <h1>The Activity Edit Page</h1>
-<!--<form action="/activity/doSaveActivity" method="post">-->
-<!--    <ul>-->
-<!--        <li><input type="hidden" name="id" th:value="${act.id}"></li>-->
-<!--        <li>标题</li>-->
-<!--        <li><input type="text" name="title" th:value="${act.title}"></li>-->
-<!--        <li>类型</li>-->
-<!--        <li><input type="text" name="category" th:value="${act.category}"></li>-->
-<!--        <li>开始时间</li>-->
-<!--        <li><input type="text" name="startTime" th:value="${#temporals.format(act.startTime, 'yyyy/MM/dd HH:mm:ss')}"></li>-->
-<!--        <li>结束时间</li>-->
-<!--        <li><input type="text" name="endTime" th:value="${#temporals.format(act.endTime, 'yyyy/MM/dd HH:mm:ss')}"></li>-->
-<!--        <li>备注</li>-->
-<!--        <li><textarea rows="5" cols="30" name="remark" th:text="${act.remark}"></textarea></li>-->
-<!--        <li>提交<input type="submit" value="save"></li>-->
-<!--    </ul>-->
-<!--</form>-->
+
 <form>
     <ul>
         <!--<li><input type="hidden" name="id" ></li>-->
@@ -43,25 +28,18 @@
         <li><input type="button" value="save" onclick="doSaveActivity()"></li>
     </ul>
 </form>
-<script type="text/javascript" src="/js/ajaxframework.js"></script>
+<!--<script type="text/javascript" src="/js/ajaxframework.js"></script>-->
+<script type="text/javascript" src="/js/jQuery.min.js"></script>
 <script type="text/javascript">
-    function $(id) {
-        return document.getElementById(id);
-    }
 
     function doSaveActivity() {
         // debugger
         // 1.定义请求参数
-        var title = $("titleId").value;
-        var category = $("categoryId").value;
-        var startTime = $("startTimeId").value;
-        var endTime = $("endTimeId").value;
-        var remark = $("remarkId").value;
-        var params = "title=" + title + "&category=" + category + "&startTime=" + startTime + "&endTime=" + endTime + "&remark=" + remark;
+        var params = $("form").serialize();
         // 2.定义请求的url
-        var url = "doSaveActivity";
+        const url = "doSaveActivity";
         // 3.发送异步请求
-        Ajax.doAjaxPost(url, params, function (result) {
+        $.post(url, params, function (result) {
             alert(result);
             location.href = "activity_list";
         });

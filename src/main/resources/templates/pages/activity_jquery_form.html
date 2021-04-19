@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The jQuery Ajax Form Function operation</title>
+</head>
+
+<body>
+<h1>The jQuery Ajax Form Function operation</h1>
+
+<form>
+    <div><input type="text" name="a" value="1" id="a"></div>
+    <div><input type="text" name="b" value="2" id="b"></div>
+    <div><input type="text" name="c" value="3" id="c"></div>
+    <div>
+        <textarea name="d" cols="20" rows="20">4</textarea>
+    </div>
+    <div>
+        <select name="e">
+            <option value="5" selected="selected">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+        </select>
+    </div>
+    <div>
+        <input type="checkbox" name="f" value="8" id="f">
+    </div>
+    <div>
+        <input type="submit" name="g" value="Submit" id="g">
+    </div>
+</form>
+
+<script src="/js/jQuery.min.js"></script>
+<script>
+    $("form").submit(function (event) {
+        // 阻止默认行为,停止表单提交
+        console.log("serializeArray", $(this).serializeArray());
+        console.log("serialize", $(this).serialize());
+        event.preventDefault();
+    });
+</script>
+</body>
+</html>
